@@ -10,7 +10,8 @@
 
 
           <!-- 1 -->
-<div *ngIf="!productosService.cargando"  class="loader loader--style1" title="0">
+<div *ngIf="productosService.cargando" 
+ class="loader loader--style1" title="0">
     <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
     <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
@@ -29,11 +30,13 @@
     </svg>
   </div>
   
-          <div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
-            <a *ngFor= "let producto of productosService.productos"
-            routerLink="/item" class="rk-item ae-masonry__item">
+          <div *ngIf="!productosService.cargando"
+          class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
+
+          <a *ngFor= "let producto of productosService.productos"
+            [routerLink]="['/item',producto.cod]" class="rk-item ae-masonry__item">
               <img src="assets/productos/{{producto.url}}.jpg" alt="">
-              <div class="item-meta">
+              <div [routerLink]="['/item',producto.cod]" class="item-meta">
                 <h2>{{producto.titulo}}</h2>
                 <p>{{producto.categoria}}</p>
               </div>

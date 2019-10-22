@@ -30,7 +30,8 @@ export class ProductosService {
 }
 
 getProducto(id:string){
-  return this.Http.get(`https://angular-html-86b17.firebaseio.com/productos/${ id }.json´)
+  return this.Http.get(`https://angular-html-86b17.firebaseio.com/productos/${ id }.json`)
 
-  }
 }
+}
+
